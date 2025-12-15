@@ -7,7 +7,7 @@ export function WhatsAppButton() {
 
   const handleClick = () => {
     const message = encodeURIComponent("Hi! I'm interested in the Mobile Technician Course. Please share more details.");
-    window.open(`https://wa.me/919999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/919061780845?text=${message}`, "_blank");
   };
 
   return (

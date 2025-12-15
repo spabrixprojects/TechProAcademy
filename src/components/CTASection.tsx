@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function CTASection() {
   const handleEnrollClick = () => {
     const message = encodeURIComponent("Hi! I want to enroll in the Mobile Technician Course. Please share details about fees and batch timings.");
-    window.open(`https://wa.me/919999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/919061780845?text=${message}`, "_blank");
   };
 
   return (
@@ -51,7 +51,7 @@ export function CTASection() {
               className="text-white border-white/20 bg-white/5 hover:bg-white/10 gap-2 text-lg h-14 px-8 backdrop-blur-sm hover:scale-105 transition-all duration-300"
             >
               <Phone className="w-5 h-5" />
-              Call: +91 99999 99999
+              Call: +91 90617 80845
             </Button>
           </div>
 

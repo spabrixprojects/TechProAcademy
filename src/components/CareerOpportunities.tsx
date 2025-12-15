@@ -28,7 +28,7 @@ const careers = [
 export function CareerOpportunities() {
   const handleEnrollClick = () => {
     const message = encodeURIComponent("Hi! I want to know more about career opportunities after the Mobile Technician Course.");
-    window.open(`https://wa.me/919999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/919061780845?text=${message}`, "_blank");
   };
 
   const containerVariants = {

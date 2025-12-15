@@ -34,7 +34,7 @@ export function Header() {
     const message = encodeURIComponent(
       "Hi! I'm interested in the Mobile Technician Course. Please share more details."
     );
-    window.open(`https://wa.me/919999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/919061780845?text=${message}`, "_blank");
   };
 
   const navVariants = {
@@ -207,7 +207,7 @@ export function Header() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-display font-bold text-xl">Menu</span>
                   <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
-                    <X className="w-5 h-5" />
+                    <X className="w-8 h-8 " />
                   </Button>
                 </div>
                 <div className="flex flex-col gap-2">

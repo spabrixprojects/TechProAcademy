@@ -8,7 +8,7 @@ export function HeroSection() {
     const message = encodeURIComponent(
       "Hi! I want to enroll in the Mobile Technician Course. Please share details."
     );
-    window.open(`https://wa.me/919999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/919061780845?text=${message}`, "_blank");
   };
 
   const containerVariants = {
