@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, Send, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, ArrowRight, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -19,7 +19,6 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name.trim() || formData.name.length > 100) {
       toast({
         title: "Invalid Name",
@@ -39,8 +38,6 @@ export function ContactSection() {
     }
 
     setIsSubmitting(true);
-
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
@@ -63,18 +60,15 @@ export function ContactSection() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5 }
-    }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
   return (
     <section id="contact" className="py-12 lg:py-24 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
       <div className="container relative z-10">
         <motion.div
@@ -88,171 +82,143 @@ export function ContactSection() {
             Get In Touch
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Ready to Start Your Journey?
+            We'd Love to Hear From You
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Fill the form below or contact us directly. We're here to help you build your career.
+            Whether you have questions about the course, placement, or fees, our team is here to guide you.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Info */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Bento Grid Info - Takes up 7 columns on desktop */}
           <motion.div
-            className="space-y-8"
+            className="lg:col-span-7 grid sm:grid-cols-2 gap-4"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <motion.div variants={itemVariants} className="p-8 bg-card/50 backdrop-blur-sm rounded-3xl border border-border shadow-sm hover:shadow-lg transition-all duration-300">
-              <h3 className="font-display font-semibold text-2xl text-foreground mb-8">
-                Contact Information
-              </h3>
+            {/* Phone Card */}
+            <motion.div variants={itemVariants} className="p-6 bg-secondary/30 rounded-3xl border border-border hover:border-accent/40 hover:bg-secondary/50 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                <Phone className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="font-semibold text-foreground text-lg mb-1">Call Us</h3>
+              <p className="text-muted-foreground text-sm mb-2">Mon-Sat from 9am to 7pm</p>
+              <a href="tel:+919061780845" className="text-lg font-medium text-foreground group-hover:text-accent transition-colors">
+                +91 90617 80845
+              </a>
+            </motion.div>
 
-              <div className="space-y-8">
-                <div className="flex items-start gap-5 group">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                    <Phone className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-lg mb-1">Phone / WhatsApp</p>
-                    <p className="text-muted-foreground text-lg group-hover:text-accent transition-colors">+91 90617 80845</p>
-                  </div>
-                </div>
+            {/* Email Card */}
+            <motion.div variants={itemVariants} className="p-6 bg-secondary/30 rounded-3xl border border-border hover:border-accent/40 hover:bg-secondary/50 transition-all duration-300 group">
+              <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                <Mail className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="font-semibold text-foreground text-lg mb-1">Email Support</h3>
+              <p className="text-muted-foreground text-sm mb-2">Get response within 24hrs</p>
+              <a href="mailto:info@techproacademy.com" className="text-lg font-medium text-foreground group-hover:text-accent transition-colors">
+                info@techproacademy.com
+              </a>
+            </motion.div>
 
-                <div className="flex items-start gap-5 group">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                    <Mail className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-lg mb-1">Email</p>
-                    <p className="text-muted-foreground text-lg group-hover:text-accent transition-colors">info@techproacademy.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5 group">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                    <MapPin className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-lg mb-1">Address</p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      2nd Floor, Emerald Mall, Mavoor Road,<br />
-                      Calicut, Kerala - 673004
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5 group">
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                    <Clock className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground text-lg mb-1">Office Hours</p>
-                    <p className="text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                  </div>
-                </div>
+            {/* Address Card - Span 2 cols */}
+            <motion.div variants={itemVariants} className="sm:col-span-2 p-6 bg-secondary/30 rounded-3xl border border-border hover:border-accent/40 hover:bg-secondary/50 transition-all duration-300 group flex items-start gap-6">
+              <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 mt-1">
+                <MapPin className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground text-lg mb-2">Visit Our Academy</h3>
+                <p className="text-muted-foreground leading-relaxed max-w-sm group-hover:text-foreground/80 transition-colors">
+                  2nd Floor, Emerald Mall, Mavoor Road, Calicut, Kerala - 673004
+                </p>
               </div>
             </motion.div>
 
-            {/* Map placeholder */}
-            <motion.div variants={itemVariants} className="h-64 bg-secondary/30 rounded-3xl flex items-center justify-center border border-border group overflow-hidden relative">
-              <div className="absolute inset-0 bg-muted/20 group-hover:bg-muted/10 transition-colors" />
-              <MapPin className="w-12 h-12 text-muted-foreground/20 absolute animate-pulse" />
-              <p className="text-muted-foreground font-medium relative z-10">Google Map Location</p>
+            {/* Map Placeholder - Span 2 cols */}
+            <motion.div variants={itemVariants} className="sm:col-span-2 h-64 bg-card rounded-3xl border border-border overflow-hidden relative group cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="absolute inset-0 bg-secondary/50 group-hover:bg-secondary/30 transition-colors flex items-center justify-center">
+                <div className="flex flex-col items-center gap-2">
+                  <MapPin className="w-10 h-10 text-accent animate-bounce" />
+                  <span className="font-medium text-muted-foreground">View on Google Maps</span>
+                </div>
+              </div>
+              {/* Add actual iframe here if needed */}
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Takes up 5 columns on desktop */}
           <motion.div
+            className="lg:col-span-5"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="p-8 md:p-10 bg-card rounded-3xl border border-border shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px]" />
+            <div className="p-8 bg-card/80 backdrop-blur-xl rounded-3xl border border-border shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-bl-[100px] -mr-10 -mt-10" />
 
-            <h3 className="font-display font-semibold text-2xl text-foreground mb-8 relative z-10">
-              Send Enquiry
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium text-foreground ml-1">
-                  Full Name <span className="text-accent">*</span>
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  maxLength={100}
-                  required
-                  className="h-12 bg-secondary/30 border-border focus:border-accent/50 transition-colors rounded-xl"
-                />
+              <div className="relative z-10 mb-8">
+                <h3 className="font-display font-semibold text-2xl text-foreground mb-2">Send Message</h3>
+                <p className="text-muted-foreground text-sm">We'll get back to you shortly.</p>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="phone" className="text-sm font-medium text-foreground ml-1">
-                  Phone Number <span className="text-accent">*</span>
-                </label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter 10-digit mobile number"
-                  maxLength={10}
-                  required
-                  className="h-12 bg-secondary/30 border-border focus:border-accent/50 transition-colors rounded-xl"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider ml-1">Name</label>
+                  <Input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    required
+                    className="h-12 bg-secondary/50 border-transparent focus:border-accent focus:bg-background transition-all rounded-xl"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-foreground ml-1">
-                  Email (Optional)
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  maxLength={255}
-                  className="h-12 bg-secondary/30 border-border focus:border-accent/50 transition-colors rounded-xl"
-                />
-              </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider ml-1">Phone</label>
+                  <Input
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="90617 80845"
+                    required
+                    maxLength={10}
+                    className="h-12 bg-secondary/50 border-transparent focus:border-accent focus:bg-background transition-all rounded-xl"
+                  />
+                </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground ml-1">
-                  Message (Optional)
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Any specific questions or requirements?"
-                  maxLength={1000}
-                  rows={4}
-                  className="bg-secondary/30 border-border focus:border-accent/50 transition-colors rounded-xl resize-none"
-                />
-              </div>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider ml-1">Message</label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you?"
+                    rows={4}
+                    className="bg-secondary/50 border-transparent focus:border-accent focus:bg-background transition-all rounded-xl resize-none"
+                  />
+                </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full gap-2 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white shadow-lg shadow-accent/20 rounded-xl h-12 text-lg font-medium"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-                {isSubmitting ? null : <ArrowRight className="w-5 h-5" />}
-              </Button>
-            </form>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full gap-2 bg-gradient-to-r from-accent to-primary hover:from-accent/90 hover:to-primary/90 text-white shadow-lg shadow-accent/20 rounded-xl h-14 text-lg font-bold tracking-wide mt-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="w-5 h-5 ml-1" />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>

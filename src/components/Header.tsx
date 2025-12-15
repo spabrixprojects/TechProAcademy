@@ -88,7 +88,14 @@ export function Header() {
         <nav className="container mx-auto flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group relative z-50">
+          <Link
+            to="/"
+            className="flex items-center gap-2 group relative z-50"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setMobileMenuOpen(false);
+            }}
+          >
             <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-105">
               <img src={logo} alt="TechPro Logo" className="w-full h-full object-contain" />
             </div>
