@@ -170,7 +170,7 @@ export function ContactSection() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Name"
                     required
                     className="h-12 bg-secondary/50 border-transparent focus:border-accent focus:bg-background transition-all rounded-xl"
                   />
@@ -183,7 +183,7 @@ export function ContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="90617 80845"
+                    placeholder="phone no"
                     required
                     maxLength={10}
                     className="h-12 bg-secondary/50 border-transparent focus:border-accent focus:bg-background transition-all rounded-xl"
