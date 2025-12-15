@@ -28,6 +28,17 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileMenuOpen]);
+
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(
       "Hi! I'm interested in the Mobile Technician Course. Please share more details."
@@ -199,7 +210,7 @@ export function Header() {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 right-0 h-full w-[85%] max-w-[300px] bg-black/40 backdrop-blur-xl border-l border-white/10 shadow-2xl z-40 lg:hidden p-6 pt-24"
+              className="fixed top-0 right-0 h-full w-[85%] max-w-[300px] bg-black/40 backdrop-blur-xl border-l border-white/10 shadow-2xl z-40 lg:hidden p-6 pt-24 overflow-y-auto"
             >
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
