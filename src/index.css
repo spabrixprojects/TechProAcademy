@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 210 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 10%;
+
+    --primary: 210 60% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 210 40% 15%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 210 15% 45%;
+
+    --accent: 150 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(210 60% 25%) 0%, hsl(210 70% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(150 80% 40%) 0%, hsl(160 70% 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(210 40% 8%) 0%, hsl(210 35% 15%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 40% 10%) 0%, hsl(210 50% 18%) 50%, hsl(150 40% 20%) 100%);
+    
+    --shadow-soft: 0 4px 20px -4px hsl(210 60% 25% / 0.15);
+    --shadow-glow: 0 0 40px hsl(150 80% 40% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(210 40% 10% / 0.1);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 210 35% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 210 35% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 150 80% 45%;
+    --primary-foreground: 210 40% 8%;
+
+    --secondary: 210 30% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 210 30% 20%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 150 80% 45%;
+    --accent-foreground: 210 40% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 30% 22%;
+    --input: 210 30% 22%;
+    --ring: 150 80% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .tech-grid {
+    background-image: 
+      linear-gradient(hsl(210 60% 25% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(210 60% 25% / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(150 80% 40% / 0.4); }
+  50% { box-shadow: 0 0 40px hsl(150 80% 40% / 0.6); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Staggered animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
