@@ -72,7 +72,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-background relative overflow-hidden">
+    <section id="contact" className="py-12 lg:py-24 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
@@ -116,7 +116,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-lg mb-1">Phone / WhatsApp</p>
-                    <p className="text-muted-foreground text-lg group-hover:text-accent transition-colors">+91 99999 99999</p>
+                    <p className="text-muted-foreground text-lg group-hover:text-accent transition-colors">+91 90617 80845</p>
                   </div>
                 </div>
 

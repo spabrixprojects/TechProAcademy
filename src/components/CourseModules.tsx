@@ -55,7 +55,7 @@ export function CourseModules() {
   };
 
   return (
-    <section className="py-20 bg-secondary/20 relative overflow-hidden">
+    <section className="py-12 lg:py-20 bg-secondary/20 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" />
@@ -91,7 +91,7 @@ export function CourseModules() {
             <motion.div
               key={module.title}
               variants={cardVariants}
-              className="group p-8 bg-card rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 relative overflow-hidden"
+              className="group p-6 lg:p-8 bg-card rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150" />
 

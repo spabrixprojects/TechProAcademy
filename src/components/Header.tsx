@@ -85,7 +85,7 @@ export function Header() {
           "bg-background/80 backdrop-blur-lg border-border/50 shadow-sm py-3"
         )}
       >
-        <nav className="container mx-auto flex items-center justify-between px-4">
+        <nav className="container mx-auto flex items-center justify-between">
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group relative z-50">

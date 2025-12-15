@@ -49,7 +49,7 @@ export function CareerOpportunities() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary to-primary/95 text-primary-foreground relative overflow-hidden">
+    <section className="py-12 lg:py-24 bg-gradient-to-br from-primary to-primary/95 text-primary-foreground relative overflow-hidden">
       {/* Decorative Circles */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />

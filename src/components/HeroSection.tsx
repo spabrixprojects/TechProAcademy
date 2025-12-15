@@ -56,7 +56,7 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 tech-grid opacity-30" />
 
-      <div className="container relative z-10 py-20">
+      <div className="container relative z-10 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div

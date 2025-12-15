@@ -53,7 +53,7 @@ export function WhyChooseUs() {
   };
 
   return (
-    <section className="py-24 bg-background relative">
+    <section className="py-12 lg:py-24 bg-background relative">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -85,7 +85,7 @@ export function WhyChooseUs() {
             <motion.div
               key={reason.title}
               variants={cardVariants}
-              className="relative p-8 bg-card rounded-3xl border border-border group hover:border-accent/40 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="relative p-6 lg:p-8 bg-card rounded-3xl border border-border group hover:border-accent/40 shadow-sm hover:shadow-xl transition-all duration-300"
             >
               <div className="absolute top-6 right-6 text-7xl font-display font-bold text-muted/20 group-hover:text-accent/10 transition-colors duration-500 select-none">
                 {String(index + 1).padStart(2, '0')}
